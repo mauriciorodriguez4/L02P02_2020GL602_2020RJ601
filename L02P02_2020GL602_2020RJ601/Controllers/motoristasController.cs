@@ -35,7 +35,7 @@ namespace L02P02_2020GL602_2020RJ601.Controllers
             }
 
             var motoristas = await _context.motoristas
-                .FirstOrDefaultAsync(m => m.motoristasId == id);
+                .FirstOrDefaultAsync(m => m.motoristaId == id);
             if (motoristas == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace L02P02_2020GL602_2020RJ601.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("motoristasId,nombreMotorista")] motoristas motoristas)
+        public async Task<IActionResult> Create([Bind("motoristaId,nombreMotorista")] motoristas motoristas)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace L02P02_2020GL602_2020RJ601.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("motoristasId,nombreMotorista")] motoristas motoristas)
+        public async Task<IActionResult> Edit(int id, [Bind("motoristaId,nombreMotorista")] motoristas motoristas)
         {
-            if (id != motoristas.motoristasId)
+            if (id != motoristas.motoristaId)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace L02P02_2020GL602_2020RJ601.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!motoristasExists(motoristas.motoristasId))
+                    if (!motoristasExists(motoristas.motoristaId))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace L02P02_2020GL602_2020RJ601.Controllers
             }
 
             var motoristas = await _context.motoristas
-                .FirstOrDefaultAsync(m => m.motoristasId == id);
+                .FirstOrDefaultAsync(m => m.motoristaId == id);
             if (motoristas == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace L02P02_2020GL602_2020RJ601.Controllers
 
         private bool motoristasExists(int id)
         {
-          return (_context.motoristas?.Any(e => e.motoristasId == id)).GetValueOrDefault();
+          return (_context.motoristas?.Any(e => e.motoristaId == id)).GetValueOrDefault();
         }
     }
 }
