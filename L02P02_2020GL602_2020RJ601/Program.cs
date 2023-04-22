@@ -1,3 +1,4 @@
+using L02P02_2020GL602_2020RJ601.Models;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
